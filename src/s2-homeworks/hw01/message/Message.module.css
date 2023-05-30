@@ -1,5 +1,4 @@
 .message {
-    max-width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -21,6 +20,9 @@
 }
 
 .text {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
     position: relative;
     padding: 8px 13px;
     margin-right: 8px;
@@ -46,7 +48,7 @@
 
 .name {
     margin-bottom: 3px;
-    font-family: 'Montserrat';
+    align-self: flex-end;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -58,6 +60,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+    word-break: inherit;
     line-height: 20px;
     color: #000000;
 }
@@ -65,7 +68,6 @@
 .time {
     padding-right: 10px;
     order: 2;
-    font-family: 'Montserrat';
     font-weight: 600;
     font-size: 10px;
     color: #000000;

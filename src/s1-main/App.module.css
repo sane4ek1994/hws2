@@ -2,7 +2,7 @@
     padding: 120px 70px;
     --header_height: 60px;
     margin: 0 auto;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hw {
