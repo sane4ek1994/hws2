@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './FriendMessage.module.css'
-import {MessageType, TUser} from "../HW1";
+import {MessageType} from "../HW1";
 
 // создать тип вместо any и отобразить приходящие данные
 
