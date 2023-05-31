@@ -38,7 +38,6 @@ function Affair(props: AffairPropsType) {
                 className={buttonClass}
                 // need to fix
                 onClick={deleteCallback}
-
             >
                 {/*текст кнопки могут изменить студенты*/}
                 X
