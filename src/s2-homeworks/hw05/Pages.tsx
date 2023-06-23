@@ -18,15 +18,15 @@ function Pages() {
             <Routes>
                 {/*роутинг будут писать студенты*/}
                 {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу /pre-junior*/}
-                {/*<Route ...*/}
+                <Route index path={'/'} element={<PreJunior/>}/>
 
                 {/*роуты для /pre-junior, /junior, /junior-plus*/}
-                {/*<Route ...*/}
-                {/*<Route ...*/}
-                {/*<Route ...*/}
+                <Route index path={'/pre-junior'} element={<PreJunior/>}/>
+                <Route index path={'/junior'} element={<Junior/>}/>
+                <Route index path={'/junior-plus'} element={<JuniorPlus/>}/>
 
                 {/*роут для несуществующей страницы должен отрисовать <Error404 />*/}
-                {/*<Route ...*/}
+                <Route path={'*'} element={<Error404 />}/>
             </Routes>
         </div>
     )
