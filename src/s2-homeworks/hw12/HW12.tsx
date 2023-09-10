@@ -24,7 +24,7 @@ const HW12 = () => {
     const themeId = useSelector<AppStoreType, THEME_VALUE>(state => state.theme.themeId)
     const dispatch = useDispatch()
     const change = (id: THEME_VALUE) => { // дописать функцию
-        dispatch(changeThemeId(id as number & THEME_VALUE))
+        dispatch(changeThemeId(Number(id)))
     }
 
     useEffect(() => {
