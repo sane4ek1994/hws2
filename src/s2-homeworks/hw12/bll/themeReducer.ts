@@ -1,7 +1,7 @@
 export enum THEME_VALUE {
-    LIGHT = 1,
-    BLUE = 2,
-    DARK = 3
+    LIGHT = '1',
+    BLUE = '2',
+    DARK = '3'
 }
 
 export type TThemeState = {
