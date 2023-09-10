@@ -1,14 +1,9 @@
-export enum THEME_VALUE {
-    LIGHT = '1',
-    BLUE = '2',
-    DARK = '3'
-}
 
 export type TThemeState = {
-    themeId: THEME_VALUE
+    themeId: number
 }
 const initState = {
-    themeId: THEME_VALUE.LIGHT,
+    themeId: 1,
 }
 
 type TActions = ReturnType<typeof changeThemeId>
@@ -26,4 +21,4 @@ export const themeReducer = (state: TThemeState = initState, action: TActions): 
     }
 }
 
-export const changeThemeId = (id: THEME_VALUE) => ({type: 'SET_THEME_ID', id} as const) // fix any
+export const changeThemeId = (id: number) => ({type: 'SET_THEME_ID', id} as const) // fix any
