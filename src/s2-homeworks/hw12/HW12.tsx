@@ -23,7 +23,7 @@ const HW12 = () => {
     // взять ид темы из редакса
     const themeId = useSelector<AppStoreType, THEME_VALUE>(state => state.theme.themeId)
     const dispatch = useDispatch()
-    const change = (id: THEME_VALUE) => { // дописать функцию
+    const change = (id: THEME_VALUE | string) => { // дописать функцию
         dispatch(changeThemeId(Number(id)))
     }
 
