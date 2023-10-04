@@ -22,9 +22,9 @@ type TechType = {
 }
 
 type ParamsType = {
-    sort?: string
-    page: number | string
-    count: number | string
+    sort: string
+    page: number
+    count: number
 }
 
 const getTechs = (params: ParamsType) => {
@@ -50,37 +50,25 @@ const HW15 = () => {
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
-                // делает студент
-                if (res) {
-                    setTechs(res.data.techs || [])
-                    setTotalCount(res.data.totalCount || 100)
-                }
-                // сохранить пришедшие данные
+            .then((res: any) => {
+                setTechs(res.data.techs)
+                setTotalCount(res.data.totalCount) // 36
+                setLoading(false)
+            })
 
-                //
-            }).finally(() => {
-            setLoading(false)
-        })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
-
         setPage(newPage)
         setCount(newCount)
-
         sendQuery({page: newPage, count: newCount})
         setSearchParams({page: String(newPage)})
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
-
         setSort(newSort)
-        setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        sendQuery({page: String(page), sort: newSort, count: String(count)})
+        setPage(1)
+        sendQuery({page: String(page), count: String(count), sort: newSort})
         setSearchParams({page: String(page), sort: newSort})
     }
 
@@ -109,7 +97,6 @@ const HW15 = () => {
 
             <div className={s2.hw}>
                 {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
-
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
