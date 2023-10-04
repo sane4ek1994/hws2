@@ -22,9 +22,9 @@ type TechType = {
 }
 
 type ParamsType = {
-    sort: string
-    page: number
-    count: number
+    sort?: string
+    page: number | string
+    count: number | string
 }
 
 const getTechs = (params: ParamsType) => {
@@ -52,35 +52,36 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
-
+                if (res) {
+                    setTechs(res.data.techs || [])
+                    setTotalCount(res.data.totalCount || 100)
+                }
                 // сохранить пришедшие данные
 
                 //
-            })
+            }).finally(() => {
+            setLoading(false)
+        })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        // setPage(
-        // setCount(
+        setPage(newPage)
+        setCount(newCount)
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        sendQuery({page: newPage, count: newCount})
+        setSearchParams({page: String(newPage)})
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        sendQuery({page: String(page), sort: newSort, count: String(count)})
+        setSearchParams({page: String(page), sort: newSort})
     }
 
     useEffect(() => {
